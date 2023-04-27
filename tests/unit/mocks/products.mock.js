@@ -20,7 +20,12 @@ const mockProductId = [
   }
 ]
 
+const newProduct = {
+  name: 'suco de uva',
+}
+
 module.exports = {
   mockAllProducts,
   mockProductId,
+  newProduct,
 }

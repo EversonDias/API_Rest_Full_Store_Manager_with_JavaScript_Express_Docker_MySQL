@@ -20,7 +20,6 @@ const saveProducts = async ({ name }) => {
     'INSERT INTO products (name) value (?)',
     [name],
   );
-  console.log(insertId);
   return insertId;
 };
 

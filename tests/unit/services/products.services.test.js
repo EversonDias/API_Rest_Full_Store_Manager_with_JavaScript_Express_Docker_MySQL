@@ -2,7 +2,7 @@ const { expect } = require('chai');
 const sinon = require('sinon');
 const { productsServices } = require('../../../src/services');
 const { productsModels } = require('../../../src/models');
-const { mockAllProducts, mockProductId } = require('../mocks/products.mock');
+const { mockAllProducts, mockProductId, newProduct } = require('../mocks/products.mock');
 
 describe('testes de unidades do Services da rota products', () => {
   afterEach(() => {
@@ -11,13 +11,18 @@ describe('testes de unidades do Services da rota products', () => {
   it('list todos os produtos', async () => {
     sinon.stub(productsModels, 'getAll').resolves(mockAllProducts);
     const result = await productsServices.getAll();
-    expect(result).to.be.deep(mockAllProducts);
+    expect(result).to.be.equal(mockAllProducts);
   })
 
   it('selecione o produto pelo id', async () => {
     sinon.stub(productsModels, 'getProductId').resolves(mockProductId);
     const result = await productsServices.getProductId(1);
-    expect(result).to.be.equal(mockProductId[0]);
+    expect(result[0]).to.be.equal(mockProductId[0]);
   })
 
+  it('salve um novo produto', async () => {
+    sinon.stub(productsModels, 'saveProducts').resolves(01);
+    const result = await productsServices.saveProducts(newProduct);
+    expect(result).to.be.equal(01);
+  })
 })
