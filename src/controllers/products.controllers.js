@@ -14,7 +14,14 @@ const getProductId = async (req, res) => {
   res.status(200).json(productId[0]);
 };
 
+const saveProducts = async (req, res) => {
+  const product = req.body;
+  const newIdOfProduct = await productsServices.saveProducts(product);
+  res.status(201).json({ id: newIdOfProduct, name: product.name });
+};
+
 module.exports = {
   getAll,
   getProductId,
+  saveProducts,
 };

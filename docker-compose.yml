@@ -54,11 +54,11 @@ services:
     image: mysql:8.0.32
     environment:
       MYSQL_ROOT_PASSWORD: 'password'
-      MYSQL_DATABASE: 'StoreManager'
+      # MYSQL_DATABASE: 'StoreManager'
     ports:
       # Garanta que não haverá conflitos de porta com um banco que esteja
       # rodando localmente
-      - 3307:3306
+      - 3306:3306
     networks:
       # Conecta esse serviço com a rede que criada 
       - store_manager_net

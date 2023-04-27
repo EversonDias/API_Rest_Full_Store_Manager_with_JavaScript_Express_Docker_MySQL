@@ -12,5 +12,24 @@
     "headers": [],
     "params": [],
     "tests": []
+  },
+  {
+    "_id": "d3fb8ffc-36c6-4bea-a496-5484329bdf61",
+    "colId": "history",
+    "containerId": "",
+    "name": "save Poduct",
+    "url": "http://localhost:3001/products",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-04-27T17:57:51.965Z",
+    "modified": "2023-04-27T17:57:51.965Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\":\"suco de morango\"\n}",
+      "form": []
+    },
+    "tests": []
   }
 ]
