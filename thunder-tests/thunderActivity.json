@@ -4,11 +4,11 @@
     "colId": "history",
     "containerId": "",
     "name": "Get Product",
-    "url": "http://localhost:3001/products/1",
+    "url": "http://localhost:3001/products",
     "method": "GET",
     "sortNum": 0,
     "created": "2023-04-26T21:47:21.300Z",
-    "modified": "2023-04-27T01:48:36.172Z",
+    "modified": "2023-04-27T18:09:03.167Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -22,12 +22,78 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2023-04-27T17:57:51.965Z",
-    "modified": "2023-04-27T17:57:51.965Z",
+    "modified": "2023-04-27T18:56:06.552Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
       "raw": "{\n  \"name\":\"suco de morango\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "59874841-7226-43a6-a494-c3de4f7e79d7",
+    "colId": "history",
+    "containerId": "",
+    "name": "get product id",
+    "url": "http://localhost:3001/products/1",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-04-27T18:08:49.082Z",
+    "modified": "2023-04-27T18:08:49.082Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "3c3084b8-893b-4e9a-ae33-a60da587074a",
+    "colId": "history",
+    "containerId": "",
+    "name": "id Not Found",
+    "url": "http://localhost:3001/products/50",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-04-27T18:09:20.238Z",
+    "modified": "2023-04-27T18:09:20.238Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "da1c050f-b9ac-47ac-9243-a154fb411867",
+    "colId": "history",
+    "containerId": "",
+    "name": "hasName",
+    "url": "http://localhost:3001/products",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-04-27T18:53:13.640Z",
+    "modified": "2023-04-27T18:53:13.640Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "d5f532ce-4a00-476f-8eb9-bd7804b89984",
+    "colId": "history",
+    "containerId": "",
+    "name": "validationQuantifyCharacter",
+    "url": "http://localhost:3001/products",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-04-27T18:54:58.119Z",
+    "modified": "2023-04-27T18:54:58.119Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\":\"du\"\n}",
       "form": []
     },
     "tests": []
