@@ -4,7 +4,7 @@ const sinonChai = require('sinon-chai');
 const { productsServices } = require('../../../src/services');
 const { productsControllers } = require('../../../src/controllers');
 const { mockAllProducts, mockProductId, newProduct } = require('../mocks/products.mock');
-const { status } = require('../../../src/utils');
+const { HTTP: { status } } = require('../../../src/utils');
 const { expect } = chai;
 chai.use(sinonChai);
 

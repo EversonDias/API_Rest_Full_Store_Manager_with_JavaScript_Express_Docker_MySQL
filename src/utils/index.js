@@ -1,3 +1,5 @@
+const connection = require('../models/connection');
+
 const HTTP = {
   status: {
     ok: 200,
@@ -7,4 +9,15 @@ const HTTP = {
     unprocessableEntity: 422,
   },
 };
-module.exports = HTTP;
+
+const getAll = async () => {
+  const [result] = await connection.execute(
+    'SELECT * FROM StoreManager.products;',
+  );
+  return result;
+};
+
+module.exports = {
+  HTTP,
+  getAll,
+};
