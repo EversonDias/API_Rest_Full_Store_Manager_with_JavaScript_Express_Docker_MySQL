@@ -21,8 +21,16 @@ const saveProducts = async (req, res) => {
   res.status(status.created).json({ id: newIdOfProduct, name: product.name });
 };
 
+const updateProduct = async (req, res) => {
+  const { id } = req.params;
+  const newProduct = req.body;
+  await productsServices.updateProduct(newProduct.name, id);
+  res.status(status.ok).json({ id, ...newProduct });
+};
+
 module.exports = {
   getAll,
   getProductId,
   saveProducts,
+  updateProduct,
 };

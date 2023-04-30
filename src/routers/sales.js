@@ -18,4 +18,14 @@ router.post(
   salesControllers.newSales,
 );
 
+router.get(
+  '/',
+  salesControllers.getAllSales,
+);
+
+router.get(
+  '/:id',
+  salesControllers.getSaleId,
+);
+
 module.exports = router;
