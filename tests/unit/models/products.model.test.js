@@ -2,7 +2,12 @@ const { expect } = require('chai');
 const sinon = require('sinon');
 const { productsModels } = require('../../../src/models');
 const connection = require('../../../src/models/connection');
-const { mockAllProducts, mockProductId, newProduct} = require('../mocks/products.mock');
+const {
+  mockAllProducts,
+  mockProductId,
+  newProduct,
+  mockUpdateSuccess,
+} = require('../mocks/products.mock');
 
 describe('testes de unidades do model da rota products', () => {
   afterEach(() => {
@@ -24,6 +29,12 @@ describe('testes de unidades do model da rota products', () => {
     sinon.stub(connection, 'execute').resolves([{ insertId: 01 }]);
     const result = await productsModels.saveProducts(newProduct);
     expect(result).to.be.equal(01);
+  })
+
+  it('atualize um produto pelo id', async () => {
+    sinon.stub(connection, 'execute').resolves(mockUpdateSuccess);
+    const result = await productsModels.updateProduct(newProduct, 1);
+    expect(result[0]).to.be.equal(mockUpdateSuccess[0]);
   })
 
 })

@@ -2,7 +2,12 @@ const { expect } = require('chai');
 const sinon = require('sinon');
 const { productsServices } = require('../../../src/services');
 const { productsModels } = require('../../../src/models');
-const { mockAllProducts, mockProductId, newProduct } = require('../mocks/products.mock');
+const {
+  mockAllProducts,
+  mockProductId,
+  newProduct,
+  mockUpdateSuccess,
+} = require('../mocks/products.mock');
 
 describe('testes de unidades do Services da rota products', () => {
   afterEach(() => {
@@ -24,5 +29,11 @@ describe('testes de unidades do Services da rota products', () => {
     sinon.stub(productsModels, 'saveProducts').resolves(01);
     const result = await productsServices.saveProducts(newProduct);
     expect(result).to.be.equal(01);
+  })
+
+  it('atualize um produto pelo id', async () => {
+    sinon.stub(productsModels, 'updateProduct').resolves(mockUpdateSuccess);
+    const result = await productsServices.updateProduct(newProduct, 1);
+    expect(result[0]).to.be.equal(mockUpdateSuccess[0]);
   })
 })

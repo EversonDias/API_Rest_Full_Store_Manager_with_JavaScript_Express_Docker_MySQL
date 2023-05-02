@@ -3,7 +3,13 @@ const sinon = require('sinon');
 const sinonChai = require('sinon-chai');
 const { productsServices } = require('../../../src/services');
 const { productsControllers } = require('../../../src/controllers');
-const { mockAllProducts, mockProductId, newProduct } = require('../mocks/products.mock');
+const {
+  mockAllProducts,
+  mockProductId,
+  newProduct,
+  mockResponseUpdate,
+  mockUpdateSuccess
+} = require('../mocks/products.mock');
 const { HTTP: { status } } = require('../../../src/utils');
 const { expect } = chai;
 chai.use(sinonChai);
@@ -60,5 +66,19 @@ describe('testes de unidades do controllers da rota products', () => {
     await productsControllers.saveProducts(req, res);
     expect(res.status).to.have.been.calledWith(status.created)
     expect(res.json).to.have.been.calledWith({ id: 20, name: newProduct.name });
+  })
+
+  it('atualize um produto pelo id', async () => {
+    const res = {};
+    const req = {
+      params: { id: 1 },
+      body: newProduct,
+    }
+    res.status = sinon.stub().returns(res);
+    res.json = sinon.stub().returns();
+    sinon.stub(productsServices, 'updateProduct').resolves(mockUpdateSuccess);
+    await productsControllers.updateProduct(req, res);
+    expect(res.status).to.have.been.calledWith(status.ok);
+    expect(res.json).to.have.been.calledWith(mockResponseUpdate);
   })
 })
