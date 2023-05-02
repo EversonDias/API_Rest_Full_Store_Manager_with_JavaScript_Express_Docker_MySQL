@@ -7,6 +7,7 @@ const HTTP = {
     notFound: 404,
     badRequest: 400,
     unprocessableEntity: 422,
+    noContent: 204,
   },
 };
 
