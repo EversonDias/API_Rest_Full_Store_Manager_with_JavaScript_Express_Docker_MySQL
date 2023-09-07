@@ -26,9 +26,9 @@ describe('testes de unidades do Services da rota products', () => {
   })
 
   it('salve um novo produto', async () => {
-    sinon.stub(productsModels, 'saveProducts').resolves(01);
+    sinon.stub(productsModels, 'saveProducts').resolves(1);
     const result = await productsServices.saveProducts(newProduct);
-    expect(result).to.be.equal(01);
+    expect(result).to.be.equal(1);
   })
 
   it('atualize um produto pelo id', async () => {

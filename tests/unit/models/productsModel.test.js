@@ -26,9 +26,9 @@ describe('testes de unidades do model da rota products', () => {
   })
 
   it('salve um novo produto', async () => {
-    sinon.stub(connection, 'execute').resolves([{ insertId: 01 }]);
+    sinon.stub(connection, 'execute').resolves([{ insertId: 1 }]);
     const result = await productsModels.saveProducts(newProduct);
-    expect(result).to.be.equal(01);
+    expect(result).to.be.equal(1);
   })
 
   it('atualize um produto pelo id', async () => {

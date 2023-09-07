@@ -12,7 +12,7 @@ services:
     # Mesmo que `docker run -i`
     stdin_open: true
     # Substitui o comando padrão da imagem do node
-    command: bash # você pode subistituir `bash` por `npm run dev` para iniciar a API quando container for iniciado  
+    command: npm run dev 
     # Restarta a imagem caso algo a faça parar
     restart: always
     # Diretório padrão de execução
@@ -31,13 +31,12 @@ services:
     ports:
       # Expõe a porta padrão da aplicação: altere aqui caso use outra porta
       - 3001:3001
-      - 9229:9229
     # Configura as variáveis de ambiente dentro do container
     environment:
       MYSQL_USER: root
       MYSQL_PASSWORD: password
       MYSQL_HOST: db # Nome do service logo abaixo
-      PORT: '3001'
+      PORT: 3001
       HOST: store_manager
     networks:
       # Conecta esse serviço com a rede que criada
@@ -47,15 +46,21 @@ services:
   db:
     container_name: store_manager_db
     image: mysql:8.0.32
-    environment:
-      MYSQL_ROOT_PASSWORD: 'password'
+    restart: always
+    platform: linux/x86_64
     ports:
       # Garanta que não haverá conflitos de porta com um banco que esteja
       # rodando localmente
       - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+    command: --init-file /data/application/init.sql
+    volumes:
+        - ./init.sql:/data/application/init.sql
     networks:
       # Conecta esse serviço com a rede que criada 
       - store_manager_net
+    
 
 # Lista de redes que os containeres irão utilizar
 networks:

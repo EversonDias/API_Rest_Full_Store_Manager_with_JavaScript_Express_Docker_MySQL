@@ -11,7 +11,7 @@ const router = express.Router();
 router.get('/', productsControllers.getAll);
 router.get('/:id', productsControllers.getProductId);
 router.post('/', hasName, validationQuantifyCharacter, productsControllers.saveProducts);
-router.post(
+router.put(
   '/:id',
   hasName,
   validationQuantifyCharacter,
