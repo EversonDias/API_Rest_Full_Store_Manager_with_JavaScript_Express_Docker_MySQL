@@ -47,7 +47,7 @@ Para acessar e executar este projeto, siga os passos abaixo:
 2. Clone o Projeto
 
 ```bash
-git clone  StoreManager
+git clone https://github.com/EversonDias/API_Rest_Full_Store_Manager_with_JavaScript_Express_Docker_MySQL.git StoreManager
 ```
 
 3. Entre no projeto
